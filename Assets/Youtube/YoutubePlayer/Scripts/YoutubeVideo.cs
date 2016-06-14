@@ -11,17 +11,27 @@ using System.Net.Security;
 
 public class YoutubeVideo : MonoBehaviour {
 
+	public GameObject LineEffect;
+	public ParticleSystem Particles;
     public static YoutubeVideo Instance;
 	public bool CanQuit;
     void Awake()
     {
         Instance = this;
+
     }
+
+	void Start(){
+		Particles.Play ();
+	
+	}
 	void Update(){
 		if (Input.GetKeyDown (KeyCode.Escape) && CanQuit) {
 			Application.Quit ();
 		} else if (Input.GetKeyDown (KeyCode.Escape) && !CanQuit) {
 			FindObjectOfType<TrackableEventHandler> ().CloseVideos ();
+			Particles.Play ();
+			LineEffect.SetActive (true);
 		}
 	}
 

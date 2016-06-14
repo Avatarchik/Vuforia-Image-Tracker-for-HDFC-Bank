@@ -34,6 +34,8 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 
     }
 	public GameObject RelatedVideoScreen;
+	public GameObject LineEffect;
+	public ParticleSystem Particles;
 
     #endregion //MONOBEHAVIOUR_METHODS
 
@@ -69,6 +71,9 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
     #region PRIVATE_METHODS
     private void OnTrackingFound()
     {
+		Particles.Stop ();
+		LineEffect.SetActive (false);
+
 		PauseOtherVideos (null);
 
 

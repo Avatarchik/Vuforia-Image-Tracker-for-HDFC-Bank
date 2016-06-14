@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{15FBDEAF-6344-6DCC-D37D-1F6CB86D1FB2}") = "Vuforia-Image-Tracker-for-HDFC-Bank", "Assembly-CSharp.csproj", "{BB97587E-68D6-A579-B4C8-4E775170CEFC}"
+EndProject
+Project("{15FBDEAF-6344-6DCC-D37D-1F6CB86D1FB2}") = "Vuforia-Image-Tracker-for-HDFC-Bank", "Assembly-CSharp-Editor.csproj", "{6AD92427-428D-F777-8E60-A9BAAD9EDD0D}"
+EndProject
+Project("{15FBDEAF-6344-6DCC-D37D-1F6CB86D1FB2}") = "Vuforia-Image-Tracker-for-HDFC-Bank", "Assembly-UnityScript-Editor-firstpass.unityproj", "{71A28B30-CD36-8E1C-04DB-E6FFBF6C423C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB97587E-68D6-A579-B4C8-4E775170CEFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB97587E-68D6-A579-B4C8-4E775170CEFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB97587E-68D6-A579-B4C8-4E775170CEFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB97587E-68D6-A579-B4C8-4E775170CEFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AD92427-428D-F777-8E60-A9BAAD9EDD0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AD92427-428D-F777-8E60-A9BAAD9EDD0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AD92427-428D-F777-8E60-A9BAAD9EDD0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AD92427-428D-F777-8E60-A9BAAD9EDD0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71A28B30-CD36-8E1C-04DB-E6FFBF6C423C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71A28B30-CD36-8E1C-04DB-E6FFBF6C423C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71A28B30-CD36-8E1C-04DB-E6FFBF6C423C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71A28B30-CD36-8E1C-04DB-E6FFBF6C423C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
