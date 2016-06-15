@@ -20,9 +20,10 @@ public class YoutubeVideo : MonoBehaviour {
         Instance = this;
 
     }
-
+	int VideoLayer;
 	void Start(){
 		Particles.Play ();
+		VideoLayer = Particles.gameObject.layer;
 	
 	}
 	void Update(){
@@ -30,6 +31,7 @@ public class YoutubeVideo : MonoBehaviour {
 			Application.Quit ();
 		} else if (Input.GetKeyDown (KeyCode.Escape) && !CanQuit) {
 			FindObjectOfType<TrackableEventHandler> ().CloseVideos ();
+			Particles.gameObject.layer = VideoLayer;
 			Particles.Play ();
 			LineEffect.SetActive (true);
 		}

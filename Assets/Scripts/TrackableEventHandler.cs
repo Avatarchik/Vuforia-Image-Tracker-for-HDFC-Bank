@@ -24,6 +24,7 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 
     void Start()
     {
+		VideoLayer = Particles.gameObject.layer;
         mTrackableBehaviour = GetComponent<TrackableBehaviour>();
         if (mTrackableBehaviour)
         {
@@ -36,7 +37,7 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 	public GameObject RelatedVideoScreen;
 	public GameObject LineEffect;
 	public ParticleSystem Particles;
-
+	int VideoLayer;
     #endregion //MONOBEHAVIOUR_METHODS
 
 
@@ -71,6 +72,8 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
     #region PRIVATE_METHODS
     private void OnTrackingFound()
     {
+		
+		Particles.gameObject.layer = 0;
 		Particles.Stop ();
 		LineEffect.SetActive (false);
 
@@ -173,7 +176,7 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
     }
 
     private void OnTrackingLost()
-	{	
+	{
 
 		ARCamera.GetComponent<VideoPlaybackController> ().enabled = false;
 		SecondCamera.GetComponent<VideoPlaybackController> ().enabled = true;
