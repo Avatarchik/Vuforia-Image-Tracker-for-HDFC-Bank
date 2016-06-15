@@ -144,13 +144,13 @@
  <HintPath>C:/Program Files (x86)/Unity 5.3 32bit/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="Vuforia.UnityExtensions">
- <HintPath>C:/Users/MASTER/Desktop/Vuforia-Image-Tracker/Assets/Vuforia/Scripts/Internal/Vuforia.UnityExtensions.dll</HintPath>
+ <HintPath>C:/Users/MASTER/Documents/Vuforia-Image-Tracker/Assets/Vuforia/Scripts/Internal/Vuforia.UnityExtensions.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>C:/Users/MASTER/Desktop/Vuforia-Image-Tracker/Assets/Youtube/YoutubePlayer/Plugins/Newtonsoft.Json.dll</HintPath>
+ <HintPath>C:/Users/MASTER/Documents/Vuforia-Image-Tracker/Assets/Youtube/YoutubePlayer/Plugins/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="YoutubeExtractor">
- <HintPath>C:/Users/MASTER/Desktop/Vuforia-Image-Tracker/Assets/Youtube/YoutubePlayer/Plugins/YoutubeExtractor.dll</HintPath>
+ <HintPath>C:/Users/MASTER/Documents/Vuforia-Image-Tracker/Assets/Youtube/YoutubePlayer/Plugins/YoutubeExtractor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
