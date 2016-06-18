@@ -10,11 +10,14 @@ using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
 
 public class YoutubeVideo : MonoBehaviour {
-
+	MenuCanvasManager[] ImageCanvasList;
+	public Canvas MenuCanvas;
 	public GameObject LineEffect;
-	public ParticleSystem Particles;
+
     public static YoutubeVideo Instance;
 	public bool CanQuit;
+	public bool OnTarget;
+	public bool MenuOpen;
     void Awake()
     {
         Instance = this;
@@ -22,8 +25,8 @@ public class YoutubeVideo : MonoBehaviour {
     }
 	int VideoLayer;
 	void Start(){
-		Particles.Play ();
-		VideoLayer = Particles.gameObject.layer;
+		ImageCanvasList = (MenuCanvasManager[])FindObjectsOfType<MenuCanvasManager> ();
+		EnableParticles (true);
 	
 	}
 	void Update(){
@@ -31,11 +34,32 @@ public class YoutubeVideo : MonoBehaviour {
 			Application.Quit ();
 		} else if (Input.GetKeyDown (KeyCode.Escape) && !CanQuit) {
 			FindObjectOfType<TrackableEventHandler> ().CloseVideos ();
-			Particles.gameObject.layer = VideoLayer;
-			Particles.Play ();
-			LineEffect.SetActive (true);
+			EnableParticles (true);
 		}
 	}
+	bool firstpassed;
+	public void EnableParticles(bool closeAllMenus){
+
+		//if (!OnTarget) {
+			
+			LineEffect.SetActive (true);
+			MenuCanvas.enabled = false;
+		//}
+
+		if (closeAllMenus) {
+			if (firstpassed) {
+				for (int pass = 0; pass < ImageCanvasList.Length; pass++) {
+					ImageCanvasList [pass].gameObject.GetComponent<Canvas> ().enabled = false;
+				}
+			}
+			firstpassed = true;
+			MenuOpen = false;
+			CanQuit = true;
+		}
+	}
+
+
+
 
     public bool drawBackground = false;
     public Texture2D backgroundImage;

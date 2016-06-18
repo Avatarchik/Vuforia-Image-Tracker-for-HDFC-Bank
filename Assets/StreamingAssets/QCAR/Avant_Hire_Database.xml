@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="Red-PassionHyundaicretafrontleftside" size="200.000000 83.076920" />
+    <ImageTarget name="Polar-WhiteHyundaicretafrontleftside" size="200.000000 83.076920" />
+    <ImageTarget name="Phantom-BlackHyundaicretafrontleftside" size="200.000000 83.076920" />
+    <ImageTarget name="Mystic-BlueHyundaicretafrontleftside" size="200.000000 83.076920" />
+    <ImageTarget name="HyundaiCreta_2016" size="200.000000 129.230774" />
+    <ImageTarget name="HyundaiCretaWheel" size="200.000000 83.076920" />
+    <ImageTarget name="HyundaiCretaTaillight" size="200.000000 129.230774" />
+    <ImageTarget name="HyundaiCretasteeringwheel" size="200.000000 83.076920" />
+    <ImageTarget name="HyundaiCretaSideViewLeft" size="200.000000 83.076920" />
+    <ImageTarget name="HYUNDAICRETASIDEMIRRORBODY" size="200.000000 83.076920" />
+    <ImageTarget name="HyundaiCretaRearView" size="200.000000 83.076920" />
+    <ImageTarget name="HyundaiCretaRearRightSide" size="200.000000 83.076920" />
+    <ImageTarget name="HyundaiCretarearairvents" size="200.000000 83.076920" />
+    <ImageTarget name="HyundaiCretaPassengerView" size="200.000000 83.076920" />
+    <ImageTarget name="HYUNDAICRETAGRILLE" size="200.000000 83.076920" />
+    <ImageTarget name="HyundaiCretaGearShifter" size="200.000000 83.076920" />
+    <ImageTarget name="HYUNDAICRETAFRONTVIEW" size="200.000000 83.076920" />
+    <ImageTarget name="HyundaiCretaFrontRightView" size="200.000000 83.076920" />
+    <ImageTarget name="HyundaiCretaDoorControls" size="200.000000 83.076920" />
+    <ImageTarget name="HyundaiCretaDashboard" size="200.000000 83.076920" />
+    <ImageTarget name="HyundaiCretaCenterConsole" size="200.000000 83.076920" />
+    <ImageTarget name="HyundaiCretaAirbags" size="200.000000 83.076920" />
+    <ImageTarget name="HyundaiCreta2016" size="200.000000 129.230774" />
+    <ImageTarget name="HyndaiCretaRearLeftView" size="200.000000 83.076920" />
     <ImageTarget name="QuickMoney_Standee_06102015-01" size="200.000000 499.653168" />
     <ImageTarget name="ZipDrive_Standee_06102015-02" size="200.000000 499.653168" />
     <ImageTarget name="InfiniaCreditCardStandee" size="200.000000 500.000000" />

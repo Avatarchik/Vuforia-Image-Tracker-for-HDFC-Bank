@@ -4,6 +4,8 @@ using System.Collections;
 public class ButtonFunction : MonoBehaviour {
 	public string URLToCall;
 	public bool Controller;
+	public Canvas MenuCanvas;
+	public Canvas VideoCanvas;
 	Marker[] MarkedArray;
 
 	void Start(){
@@ -30,8 +32,20 @@ public class ButtonFunction : MonoBehaviour {
 			}
 		}
 	}
+	public bool OpenURL;
+	public bool BackButton;
+	public int MenuLevel;
 	public void Funtion(){
-		Application.OpenURL (URLToCall);
+		if (OpenURL) {
+			Application.OpenURL (URLToCall);
+		} else if (BackButton) {
+			FindObjectOfType<TrackableEventHandler> ().CloseVideos ();
+			if (MenuLevel != 1) {				
+				MenuCanvas.GetComponent<MenuCanvasManager> ().SwitchCanvas (true);
+			} else {
+				VideoCanvas.GetComponent<MenuCanvasManager> ().SwitchCanvas (true);
+			}
+		}
 	}
 
 

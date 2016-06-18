@@ -55,12 +55,17 @@
      <Compile Include="Assets\Common\TapHandler.cs" />
      <Compile Include="Assets\Common\TrackableSettings.cs" />
      <Compile Include="Assets\Scripts\ButtonFunction.cs" />
+     <Compile Include="Assets\Scripts\DisplayViedosHyundai.cs" />
+     <Compile Include="Assets\Scripts\FeatureImageSelection.cs" />
      <Compile Include="Assets\Scripts\LineAnimationController.cs" />
      <Compile Include="Assets\Scripts\LineController.cs" />
      <Compile Include="Assets\Scripts\Marker.cs" />
+     <Compile Include="Assets\Scripts\MenuCanvasManager.cs" />
      <Compile Include="Assets\Scripts\PlayVideo.cs" />
+     <Compile Include="Assets\Scripts\SelectReviewText.cs" />
      <Compile Include="Assets\Scripts\SetUpSecondScreen.cs" />
      <Compile Include="Assets\Scripts\TrackableEventHandler.cs" />
+     <Compile Include="Assets\Scripts\UIButtonFunction.cs" />
      <Compile Include="Assets\Scripts\UIRayControl.cs" />
      <Compile Include="Assets\Scripts\VBMenuOptions.cs" />
      <Compile Include="Assets\Scripts\VBSoccerballEventHandler.cs" />
@@ -114,6 +119,7 @@
      <Compile Include="Assets\Youtube\YoutubePlayer\Scripts\Search.cs" />
      <Compile Include="Assets\Youtube\YoutubePlayer\Scripts\YoutubeVideo.cs" />
      <Compile Include="Assets\Youtube\YoutubePlayer\Scripts\Youtube_Json.cs" />
+     <None Include="Assets\StreamingAssets\QCAR\Avant_Hire_Database.xml" />
      <None Include="Assets\Plugins\iOS\VuforiaMediaSource\src\VideoPlayerWrapper.mm.txt" />
      <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />
      <None Include="Assets\link.xml" />
@@ -131,7 +137,6 @@
      <None Include="Assets\Vuforia\Shaders\DepthMask.shader" />
      <None Include="Assets\readme_SDK.txt" />
      <None Include="Assets\Youtube\YoutubePlayer\Plugins\Newtonsoft.Json.xml" />
-     <None Include="Assets\StreamingAssets\QCAR\Avant_Hire_Database.xml" />
      <None Include="Assets\Vuforia\Shaders\ClippingMask.shader" />
      <None Include="Assets\Youtube\YoutubePlayer\Readme.txt" />
      <None Include="Assets\Vuforia\Shaders\BrightTexture.shader" />

@@ -24,7 +24,6 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 
     void Start()
     {
-		VideoLayer = Particles.gameObject.layer;
         mTrackableBehaviour = GetComponent<TrackableBehaviour>();
         if (mTrackableBehaviour)
         {
@@ -35,8 +34,9 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 
     }
 	public GameObject RelatedVideoScreen;
+	public GameObject ThisVideoScreen;
 	public GameObject LineEffect;
-	public ParticleSystem Particles;
+	//public ParticleSystem Particles;
 	int VideoLayer;
     #endregion //MONOBEHAVIOUR_METHODS
 
@@ -71,10 +71,8 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 
     #region PRIVATE_METHODS
     private void OnTrackingFound()
-    {
+	{
 		
-		Particles.gameObject.layer = 0;
-		Particles.Stop ();
 		LineEffect.SetActive (false);
 
 		PauseOtherVideos (null);
@@ -90,7 +88,7 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 		if (RelatedVideoScreen.GetComponent<VideoPlaybackBehaviour> ().VideoPlayer.GetStatus () == VideoPlayerHelper.MediaState.PLAYING) {
 			RelatedVideoScreen.GetComponent<VideoPlaybackBehaviour> ().VideoPlayer.Pause ();
 		}
-		 
+
 		ThisVid = GetComponentInChildren<VideoPlaybackBehaviour> ();
 
 		RelatedVideoScreen.GetComponent<SetUpSecondScreen> ().Normalized = true;
@@ -120,59 +118,59 @@ public class TrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 
 		ButtonFunction[] UIArray = (ButtonFunction[])FindObjectsOfType<ButtonFunction> ();
 
-		for (int pass = 0; pass < UIArray.Length; pass++) {
+		/*for (int pass = 0; pass < UIArray.Length; pass++) {			
 			UIArray [pass].gameObject.GetComponent<Renderer> ().enabled = false;
 			UIArray [pass].gameObject.GetComponent<Collider> ().enabled = false;
+		}*/
+
+		Renderer[] rendererComponents = GetComponentsInChildren<Renderer>();
+		Collider[] colliderComponents = GetComponentsInChildren<Collider>();
+
+		// Enable rendering:
+		foreach (Renderer component in rendererComponents)
+		{
+			component.enabled = true;
 		}
-        Renderer[] rendererComponents = GetComponentsInChildren<Renderer>();
-        Collider[] colliderComponents = GetComponentsInChildren<Collider>();
 
-        // Enable rendering:
-        foreach (Renderer component in rendererComponents)
-        {
-            component.enabled = true;
-        }
+		// Enable colliders:
+		foreach (Collider component in colliderComponents)
+		{
+			component.enabled = true;
+		}
 
-        // Enable colliders:
-        foreach (Collider component in colliderComponents)
-        {
-            component.enabled = true;
-        }
-		
-        Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
 
-        // Optionally play the video automatically when the target is found
+		// Optionally play the video automatically when the target is found
 
-        
+
 		if (ThisVid != null && ThisVid.AutoPlay)
-        {
+		{
 			if (ThisVid.VideoPlayer.IsPlayableOnTexture())
-            {
+			{
 				VideoPlayerHelper.MediaState state = ThisVid.VideoPlayer.GetStatus();
-                if (state == VideoPlayerHelper.MediaState.PAUSED ||
-                    state == VideoPlayerHelper.MediaState.READY ||
-                    state == VideoPlayerHelper.MediaState.STOPPED)
-                {
-                    // Pause other videos before playing this one
+				if (state == VideoPlayerHelper.MediaState.PAUSED ||
+					state == VideoPlayerHelper.MediaState.READY ||
+					state == VideoPlayerHelper.MediaState.STOPPED)
+				{
+					// Pause other videos before playing this one
 					PauseOtherVideos(ThisVid);
 
-                    // Play this video on texture where it left off
+					// Play this video on texture where it left off
 
 					ThisVid.VideoPlayer.Play(false, RelatedVideoScreen.GetComponent<VideoPlaybackBehaviour>().VideoPlayer.GetCurrentPosition());
-                }
-                else if (state == VideoPlayerHelper.MediaState.REACHED_END)
-                {
-                    // Pause other videos before playing this one
+				}
+				else if (state == VideoPlayerHelper.MediaState.REACHED_END)
+				{
+					// Pause other videos before playing this one
 					PauseOtherVideos(ThisVid);
 
-                    // Play this video from the beginning
+					// Play this video from the beginning
 					ThisVid.VideoPlayer.Play(false, 0);
-                }
-            }
-        }
+				}
+			}
+		}
 
-        mHasBeenFound = true;
-        mLostTracking = false;
+		mHasBeenFound = true;
+		mLostTracking = false;
     }
 
     private void OnTrackingLost()

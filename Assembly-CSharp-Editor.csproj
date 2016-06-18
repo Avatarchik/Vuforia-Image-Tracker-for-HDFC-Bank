@@ -50,6 +50,7 @@
      <Compile Include="Assets\Vuforia\Editor\Scripts\ExtensionImport.cs" />
      <Compile Include="Assets\Vuforia\Editor\Scripts\PostProcessBuildPlayer.cs" />
      <Compile Include="Assets\Vuforia\Editor\Scripts\Unzipper\SharpZipLibUnzipper.cs" />
+     <None Include="Assets\StreamingAssets\QCAR\Avant_Hire_Database.xml" />
      <None Include="Assets\Plugins\iOS\VuforiaMediaSource\src\VideoPlayerWrapper.mm.txt" />
      <None Include="Assets\Vuforia\Shaders\ColoredLines.shader" />
      <None Include="Assets\link.xml" />
@@ -67,7 +68,6 @@
      <None Include="Assets\Vuforia\Shaders\DepthMask.shader" />
      <None Include="Assets\readme_SDK.txt" />
      <None Include="Assets\Youtube\YoutubePlayer\Plugins\Newtonsoft.Json.xml" />
-     <None Include="Assets\StreamingAssets\QCAR\Avant_Hire_Database.xml" />
      <None Include="Assets\Vuforia\Shaders\ClippingMask.shader" />
      <None Include="Assets\Youtube\YoutubePlayer\Readme.txt" />
      <None Include="Assets\Vuforia\Shaders\BrightTexture.shader" />

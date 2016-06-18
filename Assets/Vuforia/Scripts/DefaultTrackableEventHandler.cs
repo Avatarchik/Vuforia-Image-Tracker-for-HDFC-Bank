@@ -5,7 +5,7 @@ Confidential and Proprietary - Protected under copyright and other laws.
 ==============================================================================*/
 
 using UnityEngine;
-
+using UnityEngine.UI;
 namespace Vuforia
 {
     /// <summary>
@@ -17,13 +17,13 @@ namespace Vuforia
         #region PRIVATE_MEMBER_VARIABLES
  
         private TrackableBehaviour mTrackableBehaviour;
-    
+
         #endregion // PRIVATE_MEMBER_VARIABLES
 
 
 
         #region UNTIY_MONOBEHAVIOUR_METHODS
-    
+		bool FirstPassed;
         void Start()
         {
             mTrackableBehaviour = GetComponent<TrackableBehaviour>();
@@ -31,6 +31,10 @@ namespace Vuforia
             {
                 mTrackableBehaviour.RegisterTrackableEventHandler(this);
             }
+
+
+			LineEffect.SetActive (true);
+			GetComponentInChildren<Canvas> ().enabled = false;
         }
 
         #endregion // UNTIY_MONOBEHAVIOUR_METHODS
@@ -43,6 +47,12 @@ namespace Vuforia
         /// Implementation of the ITrackableEventHandler function called when the
         /// tracking state changes.
         /// </summary>
+		int VideoLayer;
+		public Canvas MenuCanvas;
+		public Text TextName;
+		public GameObject ImageSquare;
+		public Button ShowMoreButton;
+		public GameObject LineEffect;
         public void OnTrackableStateChanged(
                                         TrackableBehaviour.Status previousStatus,
                                         TrackableBehaviour.Status newStatus)
@@ -59,6 +69,8 @@ namespace Vuforia
             }
         }
 
+
+
         #endregion // PUBLIC_METHODS
 
 
@@ -68,43 +80,57 @@ namespace Vuforia
 
         private void OnTrackingFound()
         {
-            Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
-            Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
+			
 
-            // Enable rendering:
-            foreach (Renderer component in rendererComponents)
-            {
-                component.enabled = true;
-            }
+			if (!YoutubeVideo.Instance.MenuOpen) {
+				if (!FirstPassed) {
+					GetComponentInChildren<Canvas> ().enabled = false;
 
-            // Enable colliders:
-            foreach (Collider component in colliderComponents)
-            {
-                component.enabled = true;
-            }
+					TextName.gameObject.SetActive (false);
+					ImageSquare.gameObject.SetActive (false);
+					ShowMoreButton.gameObject.SetActive (false);
 
-            Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
+					GetComponentInChildren<Canvas> ().enabled = true;
+
+					TextName.gameObject.SetActive (true);
+					ImageSquare.gameObject.SetActive (true);
+					ShowMoreButton.gameObject.SetActive (true);
+
+
+					GetComponentInChildren<Canvas> ().enabled = false;
+
+					TextName.gameObject.SetActive (false);
+					ImageSquare.gameObject.SetActive (false);
+					ShowMoreButton.gameObject.SetActive (false);
+				}
+				GetComponentInChildren<Canvas> ().enabled = true;
+
+				TextName.gameObject.SetActive (true);
+				ImageSquare.gameObject.SetActive (true);
+				ShowMoreButton.gameObject.SetActive (true);
+			
+				YoutubeVideo.Instance.OnTarget = true;
+				FindObjectOfType<TrackableEventHandler> ().CloseVideos ();
+				LineEffect.SetActive (false);
+			}
+			FirstPassed = true;
+
         }
 
 
         private void OnTrackingLost()
         {
-            Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
-            Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
-
-            // Disable rendering:
-            foreach (Renderer component in rendererComponents)
-            {
-                component.enabled = false;
-            }
-
-            // Disable colliders:
-            foreach (Collider component in colliderComponents)
-            {
-                component.enabled = false;
-            }
-
-            Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
+			if (FirstPassed) {
+				TextName.gameObject.SetActive (false);
+				ShowMoreButton.gameObject.SetActive (false);
+				ImageSquare.gameObject.SetActive (false);
+				YoutubeVideo.Instance.OnTarget = false;
+				GetComponentInChildren<MenuCanvasManager> ().SwitchCanvas (false);
+				if (!YoutubeVideo.Instance.MenuOpen) {
+					YoutubeVideo.Instance.EnableParticles (false);
+					YoutubeVideo.Instance.CanQuit = true;
+				}
+			}
         }
 
         #endregion // PRIVATE_METHODS

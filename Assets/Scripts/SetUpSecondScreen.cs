@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class SetUpSecondScreen : MonoBehaviour {
-
+	
 	// Use this for initialization
 	void Start () {
 
@@ -28,7 +28,14 @@ public class SetUpSecondScreen : MonoBehaviour {
 			}
 
 		} else {
-			this.enabled = false;
+			if (GetComponent<Renderer> ().enabled) {
+				
+			}
 		}
+
+
+
+
+
 	}
 }
